@@ -46,16 +46,31 @@ const randomChoreDoorGenerator = () => {
     let choreDoor = Math.floor(Math.random() * numClosedDoors);
     if (choreDoor === 0) {
         openDoor1 = doorRobotSrc;
-        openDoor2 = doorBeachSrc;
-        openDoor3 = doorSpaceSrc;
+        let secondDoor = Math.floor(Math.random() * 2);
+        if (secondDoor === 0) {
+            openDoor2 = doorBeachSrc;
+        } else {
+            openDoor2 = doorSpaceSrc;
+        };
+        openDoor3 = (openDoor2 === doorBeachSrc) ? doorSpaceSrc : doorBeachSrc;
     } else if (choreDoor === 1) {
         openDoor1 = doorSpaceSrc;
-        openDoor2 = doorRobotSrc;
-        openDoor3 = doorBeachSrc;
+        let secondDoor = Math.floor(Math.random() * 2);
+        if (secondDoor === 0) {
+            openDoor2 = doorRobotSrc;
+        } else {
+            openDoor2 = doorBeachSrc;
+        };
+        openDoor3 = (openDoor2 === doorRobotSrc) ? doorBeachSrc : doorRobotSrc;        
     } else {
         openDoor1 = doorBeachSrc;
-        openDoor2 = doorSpaceSrc;
-        openDoor3 = doorRobotSrc;
+        let secondDoor = Math.floor(Math.random() * 2);
+        if (secondDoor === 0) {
+            openDoor2 = doorSpaceSrc;
+        } else {
+            openDoor2 = doorRobotSrc;
+        };
+        openDoor3 = (openDoor2 === doorSpaceSrc) ? doorRobotSrc : doorSpaceSrc;
     };
 };
 
